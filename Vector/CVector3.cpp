@@ -8,6 +8,7 @@
 
 #include "CVector3.hpp"
 
+
 CVector3::CVector3()
 {
     this->x = 0;
@@ -113,7 +114,7 @@ void CVector3::Normalize()
 
 void CVector3::Output()
 {
-    std::cout<<'('<<this->x<<','<<this->y<<','<<this->z<<')';
+    std::cout << '('<<this->x<<','<<this->y<<','<<this->z<<')' << std::endl;
 }
 
 CVector3 CVector3::Project(CVector3 &des)

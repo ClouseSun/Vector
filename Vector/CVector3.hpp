@@ -14,7 +14,7 @@
 
 /* CVector3 -- 3 dimensional vector class */
 
-extern const float eps = 1e-6; /* set desired precision */
+const float eps = 1e-6; /* set desired precision */
 
 class CVector3
 {
@@ -45,12 +45,6 @@ public:
      */
     
     CVector3(const CVector3 &src);
-    
-    /*
-     *  destructor
-     */
-    
-    ~CVector3();
     
     /*
      *  return x,y,z coordinate of the vector

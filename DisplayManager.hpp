@@ -22,11 +22,11 @@
 
 class DisplayManager
 {
-    static std::vector <CVector3> vec; /* store input and result vectors, maybe 2 or 3. */
-    
 public:
     
-    DisplayManager(std::vector <CVector3> &srcvec);
+    static std::vector <CVector3> vec; /* store input and result vectors, maybe 2 or 3. */
+
+    DisplayManager();
     
     /*
      *  reset viewport when window size changed
@@ -38,7 +38,7 @@ public:
      *  initialize the rendering context
      */
     
-    static void SetupRC();
+    void SetupRC();
     
     /*
      *  called to draw axis and vectors

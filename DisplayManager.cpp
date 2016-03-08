@@ -8,10 +8,14 @@
 
 #include "DisplayManager.hpp"
 
-DisplayManager::DisplayManager(std::vector <CVector3> &srcvec)
+std::vector <CVector3> DisplayManager::vec;
+
+DisplayManager::DisplayManager()
 {
-    this->vec = srcvec;
+    std::vector <CVector3> sv;
+    vec = sv;
 }
+
 
 void DisplayManager::ChangeSize(int w, int h)
 {
