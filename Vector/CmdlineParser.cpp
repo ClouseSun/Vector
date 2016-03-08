@@ -10,7 +10,7 @@
 
 CmdlineParser::CmdlineParser()
 {
-    _displaymanager = new DisplayManager;
+    _displaymanager = new DisplayManager();
 }
 
 std::vector<std::string> CmdlineParser::Split(std::string str, std::string pattern)
@@ -48,17 +48,15 @@ bool CmdlineParser::ParserVector(const std::string &cmd)
         
         std::string str = cmdline[i].substr(cmdline[i].find("(") + 1 , cmdline[i].find(")") - cmdline[i].find("(") - 1);
         std::vector<std::string> vector = CmdlineParser::Split(str , ",");
-        if(vector.size() != 3)
+        if(vector.size() == 3)
         {
-            PrintMsg("Invalid input!");
-            return false;
-        }
-        float x,y,z;
-        x = atoi(vector[0].c_str());
-        y = atoi(vector[1].c_str());
-        z = atoi(vector[2].c_str());
+            float x,y,z;
+            x = atoi(vector[0].c_str());
+            y = atoi(vector[1].c_str());
+            z = atoi(vector[2].c_str());
         
-        _displaymanager->vec.push_back(CVector3(x,y,z));
+            _displaymanager->PushCVector3(CVector3(x,y,z));
+        }
         
         if(std::strcmp(cmdline[i].c_str(), "+") == 0)
         {
@@ -79,15 +77,15 @@ bool CmdlineParser::ParserVector(const std::string &cmd)
     }
     if(1 == mark)
     {
-        CVector3 cv3(_displaymanager->vec[0] + _displaymanager->vec[1]);
-        _displaymanager->vec.push_back(cv3);
+        CVector3 cv3(_displaymanager->GetVector(0) + _displaymanager->GetVector(1));
+        _displaymanager->PushCVector3(cv3);
         std::string msg = "The result is ";
         cv3.Output();
     }
     if(2 == mark)
     {
-        CVector3 cv3(_displaymanager->vec[0] - _displaymanager->vec[1]);
-        _displaymanager->vec.push_back(cv3);
+        CVector3 cv3(_displaymanager->GetVector(0) + _displaymanager->GetVector(1));
+        _displaymanager->PushCVector3(cv3);
         std::string msg = "The result is ";
         cv3.Output();
     }
@@ -95,18 +93,18 @@ bool CmdlineParser::ParserVector(const std::string &cmd)
     {
         std::string msg = "The result of DotProduct is ";
         std::string res;
-        gcvt(_displaymanager->vec[0].DotProduct(_displaymanager->vec[1]), 7, (char *)res.c_str());
+        gcvt(_displaymanager->GetVector(0).DotProduct(_displaymanager->GetVector(1)), 7, (char *)res.c_str());
         CmdlineParser::PrintMsg(msg + res);
     }
     if(4 == mark)
     {
-        CVector3 cv3(_displaymanager->vec[0].CrossProduct(_displaymanager->vec[1]));
-        _displaymanager->vec.push_back(cv3);
+        CVector3 cv3(_displaymanager->GetVector(0).CrossProduct(_displaymanager->GetVector(1)));
+        _displaymanager->PushCVector3(cv3);
         std::string msg = "The result is ";
         cv3.Output();
     }
     
-
+    
     
     return true;
 }

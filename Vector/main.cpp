@@ -10,11 +10,11 @@
 #include "CmdlineParser.hpp"
 using namespace std;
 
-int main(int argc, const char * argv[])
+int main(int argc, char * argv[])
 {
     CmdlineParser clp;
     string cmd;
-    cin >> cmd;
+    std::getline(std::cin,cmd);
     clp.ParserVector(cmd);
-    
+    clp.Run(argc, argv);
 }

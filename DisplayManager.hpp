@@ -22,10 +22,10 @@
 
 class DisplayManager
 {
+    std::vector <CVector3> vec; /* store input and result vectors, maybe 2 or 3. */
+    
 public:
     
-    static std::vector <CVector3> vec; /* store input and result vectors, maybe 2 or 3. */
-
     DisplayManager();
     
     /*
@@ -51,6 +51,10 @@ public:
      */
     
     void Show(int argc, char* argv[]);
+    
+    void PushCVector3(CVector3 cv3);
+    
+    CVector3 GetVector(int i);
     
 };
 

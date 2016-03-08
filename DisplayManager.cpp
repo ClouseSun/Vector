@@ -2,13 +2,13 @@
 //  DisplayManager.cpp
 //  Vector
 //
-//  Created by 孙云霄 on 16/3/7.
+//  Created by ClouseSun on 16/3/7.
 //  Copyright © 2016年 ClouseSun. All rights reserved.
 //
 
 #include "DisplayManager.hpp"
 
-std::vector <CVector3> DisplayManager::vec;
+//std::vector <CVector3> DisplayManager::vec;
 
 DisplayManager::DisplayManager()
 {
@@ -68,8 +68,7 @@ void DisplayManager::RenderScene(void)
     glPopMatrix();
     
     glLineWidth(1.0f);
-    std::vector<CVector3>::iterator it;
-    for(it = vec.begin() ; it!=vec.end() ; it++)
+    for(int i = 0; i < vec.size();i++)
     {
         glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
@@ -90,4 +89,14 @@ void DisplayManager::Show(int argc, char* argv[])
     glutDisplayFunc(DisplayManager::RenderScene);
     SetupRC();
     glutMainLoop();
+}
+
+void DisplayManager::PushCVector3(CVector3 cv3)
+{
+    this->vec.push_back(cv3);
+}
+
+CVector3 DisplayManager::GetVector(int i)
+{
+    return vec[i];
 }
