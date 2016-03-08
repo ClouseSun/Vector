@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		D15D8F7F1C8D964800E9E939 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15D8F7E1C8D964800E9E939 /* main.cpp */; };
+		D15D8F8B1C8D983A00E9E939 /* CVector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15D8F891C8D983A00E9E939 /* CVector3.cpp */; settings = {ASSET_TAGS = (); }; };
+		D15D8F8E1C8DAEE700E9E939 /* DisplayManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D15D8F8C1C8DAEE700E9E939 /* DisplayManager.cpp */; settings = {ASSET_TAGS = (); }; };
+		D15D8F901C8DAFCF00E9E939 /* OpenGL.framework in Sources */ = {isa = PBXBuildFile; fileRef = D15D8F8F1C8DAFCF00E9E939 /* OpenGL.framework */; };
+		D15D8F921C8DB00100E9E939 /* GLUT.framework in Sources */ = {isa = PBXBuildFile; fileRef = D15D8F911C8DB00100E9E939 /* GLUT.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,12 @@
 /* Begin PBXFileReference section */
 		D15D8F7B1C8D964800E9E939 /* Vector */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Vector; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15D8F7E1C8D964800E9E939 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D15D8F891C8D983A00E9E939 /* CVector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CVector3.cpp; sourceTree = "<group>"; };
+		D15D8F8A1C8D983A00E9E939 /* CVector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CVector3.hpp; sourceTree = "<group>"; };
+		D15D8F8C1C8DAEE700E9E939 /* DisplayManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DisplayManager.cpp; path = ../DisplayManager.cpp; sourceTree = "<group>"; };
+		D15D8F8D1C8DAEE700E9E939 /* DisplayManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = DisplayManager.hpp; path = ../DisplayManager.hpp; sourceTree = "<group>"; };
+		D15D8F8F1C8DAFCF00E9E939 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
+		D15D8F911C8DB00100E9E939 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../System/Library/Frameworks/GLUT.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +51,8 @@
 		D15D8F721C8D964800E9E939 = {
 			isa = PBXGroup;
 			children = (
+				D15D8F911C8DB00100E9E939 /* GLUT.framework */,
+				D15D8F8F1C8DAFCF00E9E939 /* OpenGL.framework */,
 				D15D8F7D1C8D964800E9E939 /* Vector */,
 				D15D8F7C1C8D964800E9E939 /* Products */,
 			);
@@ -57,7 +69,11 @@
 		D15D8F7D1C8D964800E9E939 /* Vector */ = {
 			isa = PBXGroup;
 			children = (
+				D15D8F8C1C8DAEE700E9E939 /* DisplayManager.cpp */,
+				D15D8F8D1C8DAEE700E9E939 /* DisplayManager.hpp */,
 				D15D8F7E1C8D964800E9E939 /* main.cpp */,
+				D15D8F891C8D983A00E9E939 /* CVector3.cpp */,
+				D15D8F8A1C8D983A00E9E939 /* CVector3.hpp */,
 			);
 			path = Vector;
 			sourceTree = "<group>";
@@ -118,7 +134,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D15D8F921C8DB00100E9E939 /* GLUT.framework in Sources */,
+				D15D8F901C8DAFCF00E9E939 /* OpenGL.framework in Sources */,
+				D15D8F8B1C8D983A00E9E939 /* CVector3.cpp in Sources */,
 				D15D8F7F1C8D964800E9E939 /* main.cpp in Sources */,
+				D15D8F8E1C8DAEE700E9E939 /* DisplayManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +255,7 @@
 				D15D8F841C8D964800E9E939 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
