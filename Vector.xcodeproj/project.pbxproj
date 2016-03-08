@@ -69,11 +69,11 @@
 		D15D8F7D1C8D964800E9E939 /* Vector */ = {
 			isa = PBXGroup;
 			children = (
-				D15D8F8C1C8DAEE700E9E939 /* DisplayManager.cpp */,
 				D15D8F8D1C8DAEE700E9E939 /* DisplayManager.hpp */,
-				D15D8F7E1C8D964800E9E939 /* main.cpp */,
-				D15D8F891C8D983A00E9E939 /* CVector3.cpp */,
+				D15D8F8C1C8DAEE700E9E939 /* DisplayManager.cpp */,
 				D15D8F8A1C8D983A00E9E939 /* CVector3.hpp */,
+				D15D8F891C8D983A00E9E939 /* CVector3.cpp */,
+				D15D8F7E1C8D964800E9E939 /* main.cpp */,
 			);
 			path = Vector;
 			sourceTree = "<group>";
@@ -225,6 +225,7 @@
 		D15D8F831C8D964800E9E939 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -232,6 +233,7 @@
 		D15D8F841C8D964800E9E939 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

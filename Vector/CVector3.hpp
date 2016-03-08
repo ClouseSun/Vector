@@ -14,7 +14,7 @@
 
 /* CVector3 -- 3 dimensional vector class */
 
-extern const float eps = 1e-6;
+extern const float eps = 1e-6; /* set desired precision */
 
 class CVector3
 {
