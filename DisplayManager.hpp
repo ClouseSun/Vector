@@ -22,7 +22,7 @@
 
 class DisplayManager
 {
-    std::vector <CVector3> vec; /* store input and result vectors, maybe 2 or 3. */
+    static std::vector <CVector3> vec; /* store input and result vectors, maybe 2 or 3. */
     
 public:
     

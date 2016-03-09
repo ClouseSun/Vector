@@ -8,7 +8,7 @@
 
 #include "DisplayManager.hpp"
 
-//std::vector <CVector3> DisplayManager::vec;
+std::vector <CVector3> DisplayManager::vec;
 
 DisplayManager::DisplayManager()
 {
@@ -19,7 +19,16 @@ DisplayManager::DisplayManager()
 
 void DisplayManager::ChangeSize(int w, int h)
 {
-    glViewport(0, 0, w, h);
+    GLfloat nRange = 1.0f;
+    glViewport(0,0,w,h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    if(w<=h)
+        glOrtho(-nRange,nRange,-nRange*h/w,nRange*h/w,-100,100);
+    else
+        glOrtho(-nRange*w/h,nRange*w/h,-nRange,nRange,-100,100);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 }
 
 void DisplayManager::SetupRC()
@@ -29,11 +38,11 @@ void DisplayManager::SetupRC()
 
 void DisplayManager::RenderScene(void)
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-    
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-
+    
+    gluLookAt(60.0f, 40.0f, 30.0f, 0, 0, 0, 0, 1, 0);
+    
     glLineWidth(3.0f);
     glColor3f(1.0f, 0.0f, 0.0f);
     glBegin(GL_LINES);
@@ -68,11 +77,12 @@ void DisplayManager::RenderScene(void)
     glPopMatrix();
     
     glLineWidth(1.0f);
+    glColor3f(1.0f, 1.0f, 1.0f);
     for(int i = 0; i < vec.size();i++)
     {
         glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f((GLfloat)it->GetX(),(GLfloat)it->GetY(),(GLfloat)it->GetZ());
+        glVertex3f((GLfloat)vec[i].GetX(),(GLfloat)vec[i].GetY(),(GLfloat)vec[i].GetZ());
         glEnd();
     }
     
@@ -81,12 +91,13 @@ void DisplayManager::RenderScene(void)
 
 void DisplayManager::Show(int argc, char* argv[])
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
     glutInit(&argc, argv);
-    glutInitWindowSize(800, 600);
+    glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
+    glutInitWindowPosition(100, 100);
+    glutInitWindowSize(800, 800);
     glutCreateWindow("Display");
-    glutReshapeFunc(DisplayManager::ChangeSize);
     glutDisplayFunc(DisplayManager::RenderScene);
+    glutReshapeFunc(DisplayManager::ChangeSize);
     SetupRC();
     glutMainLoop();
 }

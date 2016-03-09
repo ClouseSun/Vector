@@ -18,7 +18,7 @@
 
 class CmdlineParser
 {
-    DisplayManager *_displaymanager;/* ptr to displaymanager instance which it will update based on the vector user give */
+    DisplayManager _displaymanager;/* ptr to displaymanager instance which it will update based on the vector user give */
     
 public:
     
@@ -49,7 +49,8 @@ protected:
     
     static void PrintMsg(const std::string &msg);
     
-
+    static void PrintFloat(float res);
+    
 };
 
 #endif /* CmdlineParser_hpp */
