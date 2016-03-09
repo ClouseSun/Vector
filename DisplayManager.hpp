@@ -23,6 +23,11 @@
 class DisplayManager
 {
     static std::vector <CVector3> vec; /* store input and result vectors, maybe 2 or 3. */
+    static float mspeed;
+    static float rspeed;
+    static float mx,my,mz;
+    static float rx,ry,rz;
+    static float sx,sy,sz;
     
 public:
     
@@ -40,11 +45,15 @@ public:
     
     void SetupRC();
     
+    static void KeyboardFunc(unsigned char key,int x, int y);
+    
     /*
      *  called to draw axis and vectors
      */
     
     static void RenderScene(void);
+    
+    static void TimeFunc(int val);
     
     /*
      *  main depicting func
