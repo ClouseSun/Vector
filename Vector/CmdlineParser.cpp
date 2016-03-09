@@ -8,10 +8,6 @@
 
 #include "CmdlineParser.hpp"
 
-CmdlineParser::CmdlineParser()
-{
-}
-
 std::vector<std::string> CmdlineParser::Split(std::string str, std::string pattern)
 {
     std::string::size_type pos;

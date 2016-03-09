@@ -25,13 +25,13 @@ class CVector3
 public:
     
     /*
-     *  default constructor
+     *  Default constructor
      */
     
     CVector3();
     
     /*
-     *  constructor with 3 coordinates
+     *  Constructor with 3 coordinates
      *  Parameters:
      *      sx : X-coordinate of the vector
      *      sy : Y-coordinate of the vector
@@ -41,13 +41,13 @@ public:
     CVector3(float sx,float sy,float sz);
     
     /*
-     *  copy constructor
+     *  Copy constructor
      */
     
     CVector3(const CVector3 &src);
     
     /*
-     *  return x,y,z coordinate of the vector
+     *  Return x,y,z coordinate of the vector
      */
     
     float GetX();
@@ -55,13 +55,13 @@ public:
     float GetZ();
     
     /*
-     *  reset vector
+     *  Reset vector
      */
     
     void Set(float sx, float sy, float sz);
     
     /*
-     *  return length of the vector
+     *  Return length of the vector
      */
     
     float GetLength();
@@ -77,38 +77,39 @@ public:
     CVector3 operator / (float scale);
     
     /*
-     *  return the result of dotproduct with source vector
+     *  Return the result of dotproduct with source vector
      */
     
     float DotProduct(const CVector3 &src);
     
     /*
-     *  return the result vector of crossproduct with source vector
+     *  Return the result vector of crossproduct with source vector
      */
     
     CVector3 CrossProduct(const CVector3 &src);
     
     /*
-     *  inverse the vector
+     *  Inverse the vector
      */
     
     void Inverse();
     
     /*
-     *  normalize the vector
+     *  Normalize the vector
      */
     
     void Normalize();
     
     /*
-     *  output the vector in the form of (x,y,z)
+     *  Output the vector in the form of (x,y,z)
      */
     
     void Output();
     
     /*
-     *  project vector on dest vector
-     *      return : projection
+     *  Project vector on dest vector
+     *  Return:
+     *      projection vector
      */
     
     CVector3 Project(CVector3 &des);

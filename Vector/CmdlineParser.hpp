@@ -22,32 +22,47 @@ class CmdlineParser
     
 public:
     
-    CmdlineParser();
-    
     /*
      * Parse given cmdlines
-     * return true if cmdline was valid, false if there was an error
+     * Return true if cmdline was valid, false if there was an error
      */
     
     bool ParserVector(const std::string &cmd);
+    
+    /*
+     *  Begin display
+     */
     
     void Run(int argc, char* argv[]);
     
 protected:
     
+    /*
+     *  Split a string by a spliter
+     *  Parameters:
+     *      str : target string
+     *      pattern : string spliter
+     *  Return:
+     *      a string vector stores result strings
+     */
+    
     static std::vector<std::string> Split(std::string str, std::string pattern);
     
     /*
-     * Print help text to console
+     *  Print help text to console
      */
     
     static void PrintHelp();
     
     /*
-     * Print help text to : (console at present)
+     *  Print help text to : (console at present)
      */
     
     static void PrintMsg(const std::string &msg);
+    
+    /*
+     *  Print a float number to : (console at present)
+     */
     
     static void PrintFloat(float res);
     
