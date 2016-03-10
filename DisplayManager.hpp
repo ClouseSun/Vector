@@ -17,6 +17,7 @@
 
 #include "CVector3.hpp"
 #include <vector>
+#include <time.h>
 
 /* DisplayManager -- display vector user input from cmdline in various perspective */
 
@@ -80,6 +81,22 @@ public:
      */
     
     CVector3 GetVector(int i);
+    
+    /*
+     *  Draw 3 dimensional axis
+     *  Parameters:
+     *      len : length of the axis
+     *      width : weight of the axis
+     *      coloring : true if axis colored (X red, Y green, Z blue), white if false
+     *      label : true if X/Y/Z labeled on each axis , false if not
+     *      scale : length for each scale (1.0f width 0.1f length), 0 for no scale
+     */
+    
+    static void DrawAxis(GLfloat len, GLfloat width, bool coloring, bool label, GLfloat scale);
+    
+    static void DrawVector3(GLfloat width, bool coloring);
+    
+    static void show_text(char *text_toshow, double x, double y, double z, int R, int G, int B);
     
 };
 

@@ -80,13 +80,13 @@ public:
      *  Return the result of dotproduct with source vector
      */
     
-    float DotProduct(const CVector3 &src);
+    float DotProduct(CVector3 src);
     
     /*
      *  Return the result vector of crossproduct with source vector
      */
     
-    CVector3 CrossProduct(const CVector3 &src);
+    CVector3 CrossProduct(CVector3 src);
     
     /*
      *  Inverse the vector
@@ -112,7 +112,7 @@ public:
      *      projection vector
      */
     
-    CVector3 Project(CVector3 &des);
+    CVector3 Project(CVector3 des);
 };
 
 #endif /* CVector3_h */

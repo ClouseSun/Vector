@@ -8,6 +8,7 @@
 
 #include "CVector3.hpp"
 
+extern const float eps;
 
 CVector3::CVector3()
 {
@@ -88,12 +89,12 @@ CVector3 CVector3::operator / (float scale)
     return CVector3(this->x / scale, this->y / scale, this->z / scale);
 }
 
-float CVector3::DotProduct(const CVector3 &src)
+float CVector3::DotProduct(CVector3 src)
 {
     return this->x * src.x + this->y * src.y + this->z * src.z;
 }
 
-CVector3 CVector3::CrossProduct(const CVector3 &src)
+CVector3 CVector3::CrossProduct(CVector3 src)
 {
     return CVector3(this->y * src.z - this->z * src.y, this->z * src.x - this->x * src.z, this->x * src.y - this->y * src.x);
 }
@@ -117,7 +118,7 @@ void CVector3::Output()
     std::cout << '('<<this->x<<','<<this->y<<','<<this->z<<')' << std::endl;
 }
 
-CVector3 CVector3::Project(CVector3 &des)
+CVector3 CVector3::Project(CVector3 des)
 {
     return des / des.GetLength() * this->DotProduct(des) / des.GetLength();
 }
