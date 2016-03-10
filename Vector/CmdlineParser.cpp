@@ -69,7 +69,7 @@ bool CmdlineParser::ParserVector(const std::string &cmd)
         {
             mark = 4;
         }
-        if(std::strcmp(cmdline[i].c_str(), "pjt") == 0)
+        if(std::strcmp(cmdline[i].c_str(), "poj") == 0)
         {
             mark = 5;
         }
@@ -99,6 +99,7 @@ bool CmdlineParser::ParserVector(const std::string &cmd)
         CVector3 cv3(_displaymanager.GetVector(0).CrossProduct(_displaymanager.GetVector(1)));
         _displaymanager.PushCVector3(cv3);
         std::string msg = "The result is ";
+        CmdlineParser::PrintMsg(msg);
         cv3.Output();
     }
     if(5 == mark)
@@ -106,6 +107,7 @@ bool CmdlineParser::ParserVector(const std::string &cmd)
         CVector3 cv3(_displaymanager.GetVector(0).Project(_displaymanager.GetVector(1)));
         _displaymanager.PushCVector3(cv3);
         std::string msg = "The result is ";
+        CmdlineParser::PrintMsg(msg);
         cv3.Output();
     }
     

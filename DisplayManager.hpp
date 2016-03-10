@@ -9,15 +9,16 @@
 #ifndef DisplayManager_hpp
 #define DisplayManager_hpp
 
+
+#include "CVector3.hpp"
+#include <vector>
+#include <time.h>
+
 #ifdef __APPLE__
 #include <GLUT/GLUT.h>
 #else
 #include <GL/glut.h>
 #endif
-
-#include "CVector3.hpp"
-#include <vector>
-#include <time.h>
 
 /* DisplayManager -- display vector user input from cmdline in various perspective */
 
@@ -94,9 +95,20 @@ public:
     
     static void DrawAxis(GLfloat len, GLfloat width, bool coloring, bool label, GLfloat scale);
     
+    /*
+     *  Draw all vectors in the stack
+     *  Parameters:
+     *      width : weight of the vector
+     *      coloring : true if vector colored , white if false
+     */
+    
     static void DrawVector3(GLfloat width, bool coloring);
     
-    static void show_text(char *text_toshow, double x, double y, double z, int R, int G, int B);
+    /*
+     *  Show the input text on (x, y, z)
+     */
+    
+    static void show_text(char *text_toshow, double x, double y, double z, float R, float G, float B);
     
 };
 

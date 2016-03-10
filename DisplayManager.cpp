@@ -72,7 +72,7 @@ void DisplayManager::RenderScene(void)
     glScalef(sx, sy, sz);
     
     DrawAxis(5.0f, 3.0f, true, true, 1.0f);
-    DrawVector3(2.0f, true);
+    DrawVector3(2.0f, false);
     
     glPopMatrix();
     glutSwapBuffers();
@@ -195,11 +195,11 @@ void DisplayManager::DrawAxis(GLfloat len, GLfloat width, bool coloring, bool la
     if(label)
     {
         char Xlabel[2] = "X";
-        show_text(Xlabel, len, 0.0f, 0.0f, 255, 0, 0);
+        show_text(Xlabel, len, 0.2f, 0.0f, 254, 0, 0);
         char Ylabel[2] = "Y";
-        show_text(Ylabel, 0.0f, len, 0.0f, 0, 255, 0);
+        show_text(Ylabel, 0.0f, len+0.2, 0.3f, 0, 254, 0);
         char Zlabel[2] = "Z";
-        show_text(Zlabel, 0.0f, 0.0f, len, 0, 0, 255);
+        show_text(Zlabel, 0.0f, 0.2f, len, 0, 0, 254);
     }
     
     if(coloring)
@@ -285,7 +285,7 @@ void DisplayManager::DrawAxis(GLfloat len, GLfloat width, bool coloring, bool la
     glTranslatef(0.0f, 0.0f, len);
     glutWireCone(0.09, 0.3, 10, 10);
     glPopMatrix();
-
+    
 }
 
 void DisplayManager::DrawVector3(GLfloat width, bool coloring)
@@ -303,16 +303,19 @@ void DisplayManager::DrawVector3(GLfloat width, bool coloring)
             if(i == 2)
                 glColor3f(1.0f, 1.0f, 0.0f);
         }
+        else if (i == 2)
+        {
+            glColor3f(1.0f, 0.0f, 1.0f);
+        }
         
         glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f((GLfloat)vec[i].GetX(),(GLfloat)vec[i].GetY(),(GLfloat)vec[i].GetZ());
         glEnd();
     }
-
 }
 
-void DisplayManager::show_text(char *text_toshow, double x, double y, double z, int R, int G, int B)
+void DisplayManager::show_text(char *text_toshow, double x, double y, double z, float R, float G, float B)
 {
     /* There are 7 bitmap fonts available in GLUT.
      GLUT_BITMAP_8_BY_13
@@ -324,7 +327,7 @@ void DisplayManager::show_text(char *text_toshow, double x, double y, double z, 
      GLUT_BITMAP_HELVETICA_18 */
     
     void* font = GLUT_BITMAP_HELVETICA_18;
-    glColor3b(R, G, B);
+    glColor3f(R, G, B);
     glRasterPos3f(x, y, z);
     
     for(int i = 0; i<=strlen(text_toshow); i++)
